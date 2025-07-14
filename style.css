@@ -616,23 +616,21 @@ input:checked + .slider {
         padding: 10px 5%;
     }
 
-    .nav-links {
-        margin-top:5px;
-        /* Ensure links stay horizontal */
-        flex-direction: row; 
-        
-        /* Enable horizontal scrolling */
-        overflow-x: auto; 
-        -webkit-overflow-scrolling: touch; /* For smoother iOS scrolling */
-        
-        /* Ensure links don't wrap and align left */
-        white-space: nowrap; 
-        width: 100%; /* Important for horizontal scrolling */
-        justify-content: flex-start; /* Align links to the start of the container */
-
-        -webkit-transform: translateZ(0);
-        transform: translateZ(0);
+    /* This new rule handles the scrolling */
+    .nav-scroller {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        white-space: nowrap;
+        width: 100%;
     }
+
+    /* Your .nav-links rule becomes much simpler */
+.nav-links {
+    margin-top: 5px;
+    display: flex; /* It's good practice to be explicit */
+    flex-direction: row;
+    justify-content: flex-start; /* Align links to the start of the container */
+}
 
     .nav-links a {
         /* Keep links inline */
