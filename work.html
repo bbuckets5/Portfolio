@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Work | Brianna Stevens</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <script>
+      (function() {
+        const theme = localStorage.getItem('theme');
+        if (theme === 'dark') {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      })();
+    </script>
+
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body data-theme="light">
+
+    <header class="navbar">
+        <div class="logo">
+            <a href="index.html">
+                <img src="images/Bislogo-black.png" alt="Logo" class="logo-light" />
+                <img src="images/Bislogo-white.png" alt="Logo" class="logo-dark" />
+            </a>
+        </div>
+        <nav class="nav-links">
+            <a href="aboutme.html" id="nav-about">About</a>
+            <a href="work.html" id="nav-work">Work</a>
+            <a href="contact.html" id="nav-contact">Contact</a>
+            <a href="documents/Resume2025.pdf" class="resume-button" id="nav-resume" target="_blank" rel="noopener">Resume</a>
+        </nav>
+        <div class="theme-switcher">
+            <i class="fas fa-sun"></i>
+            <label class="switch">
+                <input type="checkbox" id="theme-toggle-checkbox">
+                <span class="slider"></span>
+            </label>
+            <i class="fas fa-moon"></i>
+        </div>
+    </header>
+
+    <section class="page-section">
+        <div class="work-container">
+            <h2 class="section-title">My Projects</h2>
+            <div class="work-grid">
+
+                <div class="project-card">
+                    <div class="project-image-grid">
+                        <img src="images/Zipandsip.png" alt="Project detail 1" class="grid-image">
+                        <img src="images/Zipandsip2.png" alt="Project detail 2" class="grid-image">
+                        <img src="images/Zipandsip3.png" alt="Project detail 3" class="grid-image">
+                    </div>
+                    
+                    <div class="project-info">
+                        <h3 class="project-title">S&S Zip and Sip</h3>
+                        <p class="project-description">S&S Zip and Sip is a custom website created for my mom’s healthy and natural drink business. This project was special to me because it combined my technical skills with a personal connection, helping bring her vision to life through a clean, inviting design.</p>
+                        <ul class="project-tech-stack">
+                            <li>HTML</li>
+                            <li>CSS</li>
+                            <li>JavaScript</li>
+                        </ul>
+                        <div class="project-links">
+                            <a href="https://zipandsip.vercel.app/index.html" target="_blank" class="project-button">Live Demo <i class="fas fa-external-link-alt"></i></a>
+                            <a href="https://github.com/bbuckets5/zipandsip.git" target="_blank" class="project-button">Source Code <i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                </div>
+        </div>
+    </section>
+
+    <section class="social-links">
+        <a href="https://github.com/bbuckets5" target="_blank" class="social-icon" aria-label="GitHub Profile">
+            <i class="fab fa-github"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/briannastevens6/" target="_blank" class="social-icon" aria-label="LinkedIn Profile">
+            <i class="fab fa-linkedin-in"></i>
+        </a>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>

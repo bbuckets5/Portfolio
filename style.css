@@ -1,0 +1,702 @@
+/*
+=================================================
+  GLOBAL & THEME STYLES
+  These styles apply to all pages of the site.
+=================================================
+*/
+
+/* =========== CSS VARIABLES FOR THEMES =========== */
+:root {
+    --bg-color: #e0e5ec;
+    --text-color: #444;
+    --shadow-dark: #c1c8d1;
+    --shadow-light: #ffffff;
+    --hover-glow: rgba(200, 123, 244, 0.5);
+}
+
+html[data-theme="dark"] {
+    --bg-color: #2c2c2c;
+    --text-color: #e0e0e0;
+    --shadow-dark: #242424;
+    --shadow-light: #343434;
+    --hover-glow: rgba(200, 123, 244, 0.7);
+}
+
+
+/* =========== GENERAL BODY STYLES =========== */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Space Mono', monospace;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: opacity 0.4s ease-in-out; /* Smooths the fade */
+}
+
+body.fade-out {
+    opacity: 0;
+}
+
+/* =========== NAVBAR (Global) =========== */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    background-color: transparent;
+}
+
+/* --- LOGO STYLING --- */
+.logo a { text-decoration: none; }
+.logo img { height: 95px; width: auto; }
+.logo-light { display: block; }
+.logo-dark { display: none; }
+html[data-theme="dark"] .logo-light { display: none; }
+html[data-theme="dark"] .logo-dark { display: block; }
+
+/* --- NAVIGATION LINKS --- */
+.nav-links {
+  perspective: 800px;
+}
+
+.nav-links a {
+  margin: 0 15px;
+  text-decoration: none;
+  color: var(--text-color);
+  font-size: 1rem;
+  padding: 10px 15px;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  background-color: var(--bg-color);
+  box-shadow: 6px 6px 12px var(--shadow-dark), -6px -6px 12px var(--shadow-light);
+}
+
+.nav-links a:not(.resume-button):hover {
+  color: #c77bf4;
+  box-shadow: inset 2px 2px 5px var(--shadow-dark), inset -2px -2px 5px var(--shadow-light);
+}
+
+.nav-links a.active {
+  color: #c77bf4;
+  background-color: var(--bg-color);
+  box-shadow: inset 5px 5px 10px var(--shadow-dark), inset -5px -5px 10px var(--shadow-light);
+}
+
+.resume-button {
+  padding: 8px 16px;
+  border: 2px solid #c77bf4;
+  border-radius: 10px;
+  background-color: transparent;
+  color: var(--text-color);
+  transition: all 0.3s ease;
+}
+
+.resume-button:hover {
+  color: #c77bf4;
+  background-color: var(--bg-color);
+  box-shadow: inset 2px 2px 5px var(--shadow-dark), inset -2px -2px 5px var(--shadow-light);
+}
+
+
+/* =========== THEME TOGGLE SWITCH (Neumorphic) =========== */
+.theme-switcher {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 28px;
+  background-color: var(--bg-color);
+  border-radius: 50px;
+  box-shadow: 6px 6px 12px var(--shadow-dark), -6px -6px 12px var(--shadow-light);
+  transition: all 0.3s ease-in-out;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--bg-color);
+  border-radius: 50px;
+  transition: all 0.4s ease-in-out;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  left: 4px;
+  bottom: 4px;
+  background-color: var(--bg-color);
+  border-radius: 50%;
+  box-shadow: 4px 4px 8px var(--shadow-dark), -4px -4px 8px var(--shadow-light);
+  transition: transform 0.4s ease-in-out;
+}
+
+input:checked + .slider:before {
+  transform: translateX(22px);
+}
+
+input:checked + .slider {
+  box-shadow: inset 3px 3px 6px var(--shadow-dark),
+              inset -3px -3px 6px var(--shadow-light),
+              0 0 5px var(--hover-glow);
+}
+
+
+/* =========== ANIMATIONS & ACCESSIBILITY (Global) =========== */
+.word-wrapper { display: inline-block; vertical-align: top; }
+.word-wrapper span { display: inline-block; opacity: 0; animation: place3D 0.6s ease-out forwards; }
+@keyframes place3D { from { opacity: 0; transform: translateY(40px) rotateX(-90deg); } to { opacity: 1; transform: translateY(0) rotateX(0deg); } }
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+
+
+/*
+=================================================
+  HOMEPAGE (index.html) STYLES
+  These styles apply only to the homepage.
+=================================================
+*/
+
+/* =========== HERO SECTION =========== */
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  padding: 0 5%;
+}
+
+.hero-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 60px;
+  padding: 60px;
+  border-radius: 30px;
+  background-color: var(--bg-color);
+  box-shadow:
+    12px 12px 24px var(--shadow-dark),
+    -12px -12px 24px var(--shadow-light);
+  transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.hero-container:hover {
+  box-shadow:
+    inset 8px 8px 20px var(--shadow-dark),
+    inset -8px -8px 20px var(--shadow-light),
+    0 0 20px #c77bf4;
+  transform: scale(1.01);
+}
+
+.hero-image {
+  flex-shrink: 0;
+  text-align: center;
+}
+
+.profile-pic {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow:
+    8px 8px 15px var(--shadow-dark),
+    -8px -8px 15px var(--shadow-light);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.profile-pic:hover {
+  transform: scale(1.05);
+  box-shadow:
+    inset 4px 4px 8px var(--shadow-dark),
+    inset -4px -4px 8px var(--shadow-light),
+    0 0 12px #c77bf4;
+}
+
+.hero-image-name {
+  color: var(--text-color);
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-top: 15px;
+}
+
+.hero-text {
+  max-width: 500px;
+  text-align: left;
+  perspective: 800px;
+}
+
+.title {
+  font-size: 3rem;
+  color: var(--text-color);
+  margin: 0 0 10px 0;
+  font-weight: 700;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: var(--text-color);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* --- SOCIAL LINKS STYLING --- */
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  padding: 20px 0 40px 0;
+}
+
+.social-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  text-decoration: none;
+  font-size: 1.2rem;
+  color: var(--text-color);
+  background-color: var(--bg-color);
+  box-shadow:
+    6px 6px 12px var(--shadow-dark),
+    -6px -6px 12px var(--shadow-light);
+  transition: all 0.3s ease-in-out;
+}
+
+.social-icon:hover {
+  color: #c77bf4;
+  transform: translateY(-2px);
+}
+
+.social-icon:active {
+  box-shadow:
+    inset 4px 4px 8px var(--shadow-dark),
+    inset -4px -4px 8px var(--shadow-light);
+  transform: translateY(0);
+}
+
+
+/*
+=================================================
+  ABOUT ME PAGE (aboutme.html) STYLES
+  These styles apply only to the About Me page.
+=================================================
+*/
+
+/* =========== ABOUT SECTION =========== */
+.page-section {
+    padding: 20px 5%;
+    display: flex;
+    justify-content: center;
+}
+
+.about-container {
+    display: flex;
+    flex-direction: column; /* This was changed to stack items */
+    align-items: center;   /* This was changed to center items */
+    gap: 50px;
+    max-width: 1100px;
+}
+
+.about-text {
+    max-width: 750px;
+    line-height: 1.7;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 40px;
+    color: var(--text-color);
+}
+
+/* --- SKILLS SUB-SECTION --- */
+.about-skills {
+    max-width: 400px;
+}
+
+.subsection-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-align: center; /* Add this line */
+}
+
+.skills-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center; /* Add this line */
+}
+
+.skill-item {
+    padding: 12px 20px;
+    border-radius: 12px;
+    background-color: var(--bg-color);
+    box-shadow:
+        5px 5px 10px var(--shadow-dark),
+        -5px -5px 10px var(--shadow-light);
+    font-weight: 700;
+    transition: all 0.3s ease-in-out;
+    color: var(--text-color);
+    text-align: center;
+    cursor: default;
+}
+
+.skill-item:hover {
+    color: #c77bf4;
+    box-shadow:
+        inset 4px 4px 8px var(--shadow-dark),
+        inset -4px -4px 8px var(--shadow-light);
+    transform: translateY(0);
+}
+
+
+/*
+=================================================
+  WORK PAGE (work.html) STYLES
+  These styles apply only to the Work page.
+=================================================
+*/
+
+.work-container {
+    width: 100%;
+    max-width: 1200px;
+}
+
+.work-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 40px;
+    width: 100%;
+}
+
+.project-card {
+    background-color: var(--bg-color);
+    border-radius: 20px;
+    box-shadow: 8px 8px 16px var(--shadow-dark), -8px -8px 16px var(--shadow-light);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 12px 12px 24px var(--shadow-dark), -12px -12px 24px var(--shadow-light);
+}
+
+/* --- Side-by-Side Project Images --- */
+.project-image-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Creates 3 equal columns */
+    gap: 5px; /* Adds a small space between images */
+}
+
+.grid-image {
+    width: 100%;
+    height: 200px; /* Adjust height as needed */
+    object-fit: contain;
+    display: block;
+}
+
+.project-info {
+    padding: 25px;
+}
+
+.project-title {
+    font-size: 1.5rem;
+    margin: 0 0 10px 0;
+}
+
+.project-description {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.project-tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    list-style: none;
+    padding: 0;
+    margin: 0 0 25px 0;
+}
+
+.project-tech-stack li {
+    background-color: var(--bg-color);
+    padding: 5px 12px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    box-shadow: inset 3px 3px 6px var(--shadow-dark), inset -3px -3px 6px var(--shadow-light);
+}
+
+.project-links {
+    display: flex;
+    gap: 15px;
+}
+
+.project-button {
+    text-decoration: none;
+    color: var(--text-color);
+    padding: 10px 18px;
+    border-radius: 10px;
+    background-color: var(--bg-color);
+    box-shadow: 5px 5px 10px var(--shadow-dark), -5px -5px 10px var(--shadow-light);
+    transition: all 0.2s ease-in-out;
+    font-weight: 700;
+}
+
+.project-button:hover {
+    color: #c77bf4;
+    transform: translateY(-2px);
+}
+
+.project-button:active {
+    box-shadow: inset 4px 4px 8px var(--shadow-dark), inset -4px -4px 8px var(--shadow-light);
+    transform: translateY(0);
+}
+
+.project-button i {
+    margin-left: 8px;
+}
+
+/*
+=================================================
+  CONTACT PAGE (contact.html) STYLES
+=================================================
+*/
+
+.contact-container {
+    background-color: var(--bg-color);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 12px 12px 24px var(--shadow-dark), -12px -12px 24px var(--shadow-light);
+    max-width: 700px;
+    width: 100%;
+    text-align: center;
+}
+
+.contact-intro {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 700;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 12px;
+    background-color: var(--bg-color);
+    box-shadow: inset 4px 4px 8px var(--shadow-dark), inset -4px -4px 8px var(--shadow-light);
+    font-family: 'Space Mono', monospace;
+    color: var(--text-color);
+    font-size: 1rem;
+    resize: vertical;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    box-shadow: inset 6px 6px 12px var(--shadow-dark), inset -6px -6px 12px var(--shadow-light), 0 0 0 2px #c77bf4;
+}
+
+.submit-button {
+    cursor: pointer;
+    font-family: 'Space Mono', monospace;
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--text-color);
+    padding: 15px 20px;
+    border: none;
+    border-radius: 12px;
+    background-color: var(--bg-color);
+    box-shadow: 6px 6px 12px var(--shadow-dark), -6px -6px 12px var(--shadow-light);
+    transition: all 0.2s ease-in-out;
+}
+
+.submit-button:hover {
+    color: #c77bf4;
+    transform: translateY(-2px);
+}
+
+.submit-button:active {
+    box-shadow: inset 4px 4px 8px var(--shadow-dark), inset -4px -4px 8px var(--shadow-light);
+    transform: translateY(0);
+}
+
+/*
+=================================================
+  MEDIA QUERIES (RESPONSIVE DESIGN)
+=================================================
+*/
+
+/* --- Mobile and Tablet View (Max 768px) --- */
+@media (max-width: 768px) {
+    
+    /* Global Adjustments */
+    body {
+        padding: 0 15px;
+    }
+    
+    /* Navbar adjustments for horizontal scrolling */
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px 5%;
+    }
+
+    .nav-links {
+        margin-top:5px;
+        /* Ensure links stay horizontal */
+        flex-direction: row; 
+        
+        /* Enable horizontal scrolling */
+        overflow-x: auto; 
+        -webkit-overflow-scrolling: touch; /* For smoother iOS scrolling */
+        
+        /* Ensure links don't wrap and align left */
+        white-space: nowrap; 
+        width: 100%; /* Important for horizontal scrolling */
+        justify-content: flex-start; /* Align links to the start of the container */
+    }
+
+    .nav-links a {
+        /* Keep links inline */
+        display: inline-block; 
+        margin: 0 5px; /* Adjust margin for horizontal spacing */
+    }
+
+    .theme-switcher {
+        margin-top: 15px;
+    }
+
+    /* Hero Section (Homepage) */
+    .hero-container {
+        flex-direction: column;
+        padding: 30px;
+        gap: 30px; /* Reduce gap on mobile */
+    }
+
+    .hero-text {
+        text-align: center; /* Center align text in hero section */
+    }
+
+    .title {
+        font-size: 2.5rem; /* Reduce font size for mobile */
+    }
+
+    .subtitle {
+        font-size: 1rem;
+    }
+
+    .social-links {
+        justify-content: center;
+    }
+
+    /* Work Page */
+    .work-grid {
+        grid-template-columns: 1fr; /* Stack projects in a single column */
+    }
+
+    /* Work Page adjustments */
+    .work-grid {
+        grid-template-columns: 1fr; 
+    }
+    
+    /* Image grid adjustment within project cards */
+    .project-image-grid {
+        display: grid; /* Make sure it's a grid */
+        grid-template-columns: 1fr; /* For mobile; adjust for larger screens if needed */
+        gap: 8px; /* Reduce this value if spacing is too large */
+        padding: 0; /* Remove unwanted internal padding */
+        margin: 0;  /* Remove external margin if present */
+    }
+    
+    /* Image style */
+    .grid-image {
+        width: 100%;
+        height: auto;
+        object-fit: contain; /* or use 'cover' if you want the image to fill its container */
+        display: block;
+        margin: 0; /* Important: remove default inline spacing */
+        padding: 0;
+    }
+
+    /* About Me Page */
+    .about-container {
+        padding: 0 20px;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    /* Contact Page */
+    .contact-container {
+        padding: 30px 20px;
+    }
+
+    .contact-intro {
+        font-size: 1rem;
+    }
+
+    /* ✅ Add form/input fixes here */
+    .contact-form {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 0;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        padding: 15px;
+        margin-bottom: 15px;
+        font-size: 1rem;
+        font-family: 'Space Mono', monospace;
+        color: var(--text-color);
+        background-color: var(--bg-color);
+        border: none;
+        border-radius: 12px;
+        box-shadow: inset 4px 4px 8px var(--shadow-dark), inset -4px -4px 8px var(--shadow-light);
+        resize: vertical;
+    }
+}

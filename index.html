@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Brianna Stevens | Web Developer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <script>
+      (function() {
+        const theme = localStorage.getItem('theme');
+        if (theme === 'dark') {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      })();
+    </script>
+
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body data-theme="light">
+
+    <header class="navbar">
+        <div class="logo">
+            <a href="index.html">
+                <img src="images/Bislogo-black.png" alt="Logo" class="logo-light" />
+                <img src="images/Bislogo-white.png" alt="Logo" class="logo-dark" />
+            </a>
+        </div>
+        <nav class="nav-links">
+            <a href="aboutme.html" id="nav-about">About</a>
+            <a href="work.html" id="nav-work">Work</a>
+            <a href="contact.html" id="nav-contact">Contact</a>
+            <a href="documents/Resume2025.pdf" class="resume-button" id="nav-resume" target="_blank" rel="noopener">Resume</a>
+        </nav>
+        <div class="theme-switcher">
+            <i class="fas fa-sun"></i>
+            <label class="switch">
+                <input type="checkbox" id="theme-toggle-checkbox">
+                <span class="slider"></span>
+            </label>
+            <i class="fas fa-moon"></i>
+        </div>
+    </header>
+
+    <main class="hero">
+        <div class="hero-container">
+            <div class="hero-image">
+                <img src="images/Headshot.png" alt="Brianna Stevens Headshot" class="profile-pic" />
+                <h2 class="hero-image-name">Brianna Stevens</h2>
+            </div>
+            <div class="hero-text">
+                <h1 class="title" id="hero-title">Web<br>Developer</h1>
+                <p class="subtitle" id="hero-subtitle">
+                    Crafting beautiful and intuitive digital experiences. I transform complex ideas into responsive, user-friendly web applications.
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <section class="social-links">
+        <a href="https://github.com/bbuckets5" target="_blank" class="social-icon" aria-label="GitHub Profile">
+            <i class="fab fa-github"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/briannastevens6/" target="_blank" class="social-icon" aria-label="LinkedIn Profile">
+            <i class="fab fa-linkedin-in"></i>
+        </a>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
