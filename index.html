@@ -3,15 +3,14 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Google tag (gtag.js) -->
-     <script async src="https://www.googletagmanager.com/gtag/js?id=G-V2K4YNDYBR"></script>
-     <script>
-     window.dataLayer = window.dataLayer || [];
-     function gtag(){dataLayer.push(arguments);}
-     gtag('js', new Date());
-     
-     gtag('config', 'G-V2K4YNDYBR');
-     </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-V2K4YNDYBR"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        
+        gtag('config', 'G-V2K4YNDYBR');
+    </script>
     <title>Brianna Stevens | Web Developer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -34,16 +33,20 @@
     <header class="navbar">
         <div class="logo">
             <a href="index.html">
-                <img src="images/Bislogo-black.png" alt="Logo" class="logo-light" />
-                <img src="images/Bislogo-white.png" alt="Logo" class="logo-dark" />
+                <img src="images/Bislogo-black.png" alt="Brianna Stevens Logo" class="logo-light" />
+                <img src="images/Bislogo-white.png" alt="Brianna Stevens Logo" class="logo-dark" />
             </a>
         </div>
-        <nav class="nav-links">
-            <a href="aboutme.html" id="nav-about">About</a>
-            <a href="work.html" id="nav-work">Work</a>
-            <a href="contact.html" id="nav-contact">Contact</a>
-            <a href="documents/Resume2025.pdf" class="resume-button" id="nav-resume" target="_blank" rel="noopener">Resume</a>
-        </nav>
+        
+        <div class="nav-scroller">
+            <nav class="nav-links">
+                <a href="aboutme.html" id="nav-about">About</a>
+                <a href="work.html" id="nav-work">Work</a>
+                <a href="contact.html" id="nav-contact">Contact</a>
+                <a href="documents/Resume2025.pdf" class="resume-button" id="nav-resume" target="_blank" rel="noopener">Resume</a>
+            </nav>
+        </div>
+        
         <div class="theme-switcher">
             <i class="fas fa-sun"></i>
             <label class="switch">
@@ -58,7 +61,7 @@
         <div class="hero-container">
             <div class="hero-image">
                 <img src="images/Headshot.png" alt="Brianna Stevens Headshot" class="profile-pic" />
-                <h2 class="hero-image-name">Brianna Stevens</h2>
+                <p class="hero-image-name">Brianna Stevens</p>
             </div>
             <div class="hero-text">
                 <h1 class="title" id="hero-title">Web<br>Developer</h1>

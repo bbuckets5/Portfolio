@@ -9,17 +9,21 @@ document.addEventListener('DOMContentLoaded', () => {
     =================================
     */
     const themeToggle = document.getElementById('theme-toggle-checkbox');
-    const currentTheme = localStorage.getItem('theme');
 
-    if (currentTheme === 'dark') {
-        themeToggle.checked = true;
+    // Only run this code if the theme toggle exists on the page
+    if (themeToggle) {
+        const currentTheme = localStorage.getItem('theme');
+
+        if (currentTheme === 'dark') {
+            themeToggle.checked = true;
+        }
+
+        themeToggle.addEventListener('change', () => {
+            const newTheme = themeToggle.checked ? 'dark' : 'light';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        });
     }
-
-    themeToggle.addEventListener('change', () => {
-        const newTheme = themeToggle.checked ? 'dark' : 'light';
-        document.documentElement.setAttribute('data-theme', newTheme);
-        localStorage.setItem('theme', newTheme);
-    });
 
     /*
     =================================
