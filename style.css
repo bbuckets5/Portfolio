@@ -617,7 +617,7 @@ input:checked + .slider {
         padding: 10px 5%;
     }
 
-    /* This new rule handles the scrolling */
+    /* This rule handles the scrolling */
     .nav-scroller {
         overflow-x: auto;
         -webkit-overflow-scrolling: touch;
@@ -625,17 +625,24 @@ input:checked + .slider {
         width: 100%;
     }
 
-    /* Your .nav-links rule becomes much simpler */
+    /* Your .nav-links rule is simpler */
     .nav-links {
         margin-top: 5px;
+        display: flex;
         flex-direction: row;
         justify-content: flex-start;
     }
 
     .nav-links a {
-        /* Keep links inline */
         display: inline-block;
-        margin: 0 5px; /* Adjust margin for horizontal spacing */
+        margin: 0 5px;
+    }
+
+    /* --- FIX: Disable text animation on mobile --- */
+    /* This new rule turns off the animation and makes the text visible */
+    .word-wrapper span {
+        animation: none;
+        opacity: 1;
     }
 
     .theme-switcher {
@@ -646,15 +653,15 @@ input:checked + .slider {
     .hero-container {
         flex-direction: column;
         padding: 30px;
-        gap: 30px; /* Reduce gap on mobile */
+        gap: 30px;
     }
 
     .hero-text {
-        text-align: center; /* Center align text in hero section */
+        text-align: center;
     }
 
     .title {
-        font-size: 2.5rem; /* Reduce font size for mobile */
+        font-size: 2.5rem;
     }
 
     .subtitle {
@@ -667,30 +674,25 @@ input:checked + .slider {
 
     /* Work Page */
     .work-grid {
-        grid-template-columns: 1fr; /* Stack projects in a single column */
-    }
-
-    /* Work Page adjustments */
-    .work-grid {
         grid-template-columns: 1fr;
     }
 
     /* Image grid adjustment within project cards */
     .project-image-grid {
-        display: grid; /* Make sure it's a grid */
-        grid-template-columns: 1fr; /* For mobile; adjust for larger screens if needed */
-        gap: 8px; /* Reduce this value if spacing is too large */
-        padding: 0; /* Remove unwanted internal padding */
-        margin: 0;  /* Remove external margin if present */
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 8px;
+        padding: 0;
+        margin: 0;
     }
 
     /* Image style */
     .grid-image {
         width: 100%;
         height: auto;
-        object-fit: contain; /* or use 'cover' if you want the image to fill its container */
+        object-fit: contain;
         display: block;
-        margin: 0; /* Important: remove default inline spacing */
+        margin: 0;
         padding: 0;
     }
 
@@ -712,7 +714,6 @@ input:checked + .slider {
         font-size: 1rem;
     }
 
-    /* ✅ Add form/input fixes here */
     .contact-form {
         width: 100%;
         box-sizing: border-box;
