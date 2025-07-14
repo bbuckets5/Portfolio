@@ -58,6 +58,8 @@ html[data-theme="dark"] .logo-dark { display: block; }
 .nav-links {
     -webkit-perspective: 800px;
     perspective: 800px;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
 }
 
 .nav-links a {
@@ -627,6 +629,9 @@ input:checked + .slider {
         white-space: nowrap; 
         width: 100%; /* Important for horizontal scrolling */
         justify-content: flex-start; /* Align links to the start of the container */
+
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
     }
 
     .nav-links a {
